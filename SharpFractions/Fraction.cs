@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace SharpMathLib;
+﻿namespace SharpMathLib;
 
 public readonly struct Fraction : IComparable<Fraction>, IEquatable<Fraction>
 {
