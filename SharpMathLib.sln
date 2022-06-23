@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpFractions", "SharpFractions\SharpFractions.csproj", "{CF490AC3-DB0E-49DB-8357-01DFC16E8AAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpFractionsTest", "SharpFractionsTest\SharpFractionsTest.csproj", "{4CCB0331-89E3-4366-B70A-DFD93013397A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CF490AC3-DB0E-49DB-8357-01DFC16E8AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF490AC3-DB0E-49DB-8357-01DFC16E8AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF490AC3-DB0E-49DB-8357-01DFC16E8AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CCB0331-89E3-4366-B70A-DFD93013397A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CCB0331-89E3-4366-B70A-DFD93013397A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CCB0331-89E3-4366-B70A-DFD93013397A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CCB0331-89E3-4366-B70A-DFD93013397A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
