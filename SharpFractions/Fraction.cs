@@ -46,6 +46,8 @@ public readonly struct Fraction : IComparable<Fraction>, IEquatable<Fraction>
     public bool IsOne => Numerator == Denominator;
     public int Sign => GetSign();
 
+    public Fraction SwapSign() => new(-Numerator, -Denominator);
+
     private int GetSign()
     {
         if (Numerator == 0) return 0;
