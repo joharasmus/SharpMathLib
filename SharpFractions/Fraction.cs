@@ -51,6 +51,9 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
 
     public Fraction Pow(int power)
     {
+        if (power == 0) return One;
+        if (power == 1) return this;
+
         if (power < 0) return Invert().Pow(-power);
 
         return new(
