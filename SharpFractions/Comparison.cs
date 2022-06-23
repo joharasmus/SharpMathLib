@@ -3,12 +3,12 @@
 public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Fraction>
 {
     // Comparisons:
-    public static bool operator ==(Fraction frac1, Fraction frac2) => Compare(frac1, frac2) == 0;
-    public static bool operator !=(Fraction frac1, Fraction frac2) => Compare(frac1, frac2) != 0;
-    public static bool operator <(Fraction frac1, Fraction frac2) => Compare(frac1, frac2) == -1;
-    public static bool operator >(Fraction frac1, Fraction frac2) => Compare(frac1, frac2) == 1;
-    public static bool operator <=(Fraction frac1, Fraction frac2) => Compare(frac1, frac2) != 1;
-    public static bool operator >=(Fraction frac1, Fraction frac2) => Compare(frac1, frac2) != -1;
+    public static bool operator ==  (Fraction frac1, Fraction frac2) => Compare(frac1, frac2) == 0;
+    public static bool operator !=  (Fraction frac1, Fraction frac2) => Compare(frac1, frac2) != 0;
+    public static bool operator <   (Fraction frac1, Fraction frac2) => Compare(frac1, frac2) == -1;
+    public static bool operator >   (Fraction frac1, Fraction frac2) => Compare(frac1, frac2) == 1;
+    public static bool operator <=  (Fraction frac1, Fraction frac2) => Compare(frac1, frac2) != 1;
+    public static bool operator >=  (Fraction frac1, Fraction frac2) => Compare(frac1, frac2) != -1;
 
     public override bool Equals([NotNullWhen(true)] object? obj)
     {

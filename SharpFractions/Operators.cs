@@ -42,7 +42,7 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
     // For interaction with integer types:
 
     public static implicit operator Fraction(BigInteger bigInteger) => new(bigInteger);
-    public static implicit operator Fraction(long longInteger) => new(longInteger);
-    public static implicit operator Fraction(int integer) => new(new(integer));
-    public static implicit operator Fraction(short shortInteger) => new(new(shortInteger));
+    public static implicit operator Fraction(long longInteger)      => new(longInteger);
+    public static implicit operator Fraction(int integer)           => new(integer);
+    public static implicit operator Fraction(short shortInteger)    => new(shortInteger);
 }

@@ -11,7 +11,7 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
     {
         if (toParse == null) throw new ArgumentNullException(nameof(toParse));
 
-        frac = new(0);
+        frac = new Fraction(0);
 
         if (toParse.Count(c => c == '/') != 1) return false;
 

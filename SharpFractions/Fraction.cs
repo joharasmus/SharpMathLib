@@ -16,6 +16,27 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
     public Fraction(BigInteger integer) : this(integer, 1) { }
 
 
+    public bool IsInt   => Numerator % Denominator == 0;
+    public bool IsZero  => Numerator == 0;
+    public bool IsOne   => Numerator == Denominator;
+
+    public int Sign 
+    {
+        get 
+        {
+            if (Numerator == 0) return 0;
+            return Numerator.Sign == Denominator.Sign ? 1 : -1;
+        }
+    }
+
+    public BigInteger Whole => Numerator / Denominator;
+    public BigInteger Part  => Numerator % Denominator;
+    public (BigInteger, Fraction) Mixed => (Whole, new(Part, Denominator)); 
+
+    public static Fraction MinusOne => new(-1);
+    public static Fraction One      => new(1);
+    public static Fraction Zero     => new(0);
+
 
     public Fraction ExpandBy(BigInteger integer)
     {
@@ -37,29 +58,15 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
             BigInteger.Pow(Denominator, power));
     }
 
+    public Fraction SwapSign() => new(-Numerator, -Denominator);
+
     public Fraction ToSimplest()
     {
         BigInteger gcdOfNumDen = BigInteger.GreatestCommonDivisor(Numerator, Denominator);
         return new(Numerator / gcdOfNumDen, Denominator / gcdOfNumDen);
     }
 
-    public bool IsInt => Numerator % Denominator == 0;
-    public bool IsZero => Numerator == 0;
-    public bool IsOne => Numerator == Denominator;
 
-    public int Sign 
-    {
-        get 
-        {
-            if (Numerator == 0) return 0;
-            return Numerator.Sign == Denominator.Sign ? 1 : -1;
-        }
-    }
-
-    public Fraction SwapSign() => new(-Numerator, -Denominator);
-    public BigInteger Whole => Numerator / Denominator;
-    public BigInteger Part => Numerator % Denominator;
-    public (BigInteger, Fraction) Mixed => (Whole, new(Part, Denominator)); 
 
     public static Fraction Abs(Fraction fraction)
     {
@@ -71,31 +78,9 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
         return new(fraction.Numerator, fraction.Denominator * -1);
     }
 
-    // Always puts on a positive denominator
-    public static (Fraction, Fraction) PutOnCommonDenominator(Fraction frac1, Fraction frac2)
-    {
-        if (frac1.Denominator == frac2.Denominator) return (frac1, frac2);
-
-        BigInteger newDenom = BigIntExtra.LeastCommonMultiple(frac1.Denominator, frac2.Denominator);
-        BigInteger toExpandFrac1By = newDenom / frac1.Denominator;
-        BigInteger toExpandFrac2By = newDenom / frac2.Denominator;
-
-        return (frac1.ExpandBy(toExpandFrac1By), frac2.ExpandBy(toExpandFrac2By));
-    }
-
-
-    public static Fraction MinusOne => new(-1);
-    public static Fraction One => new(1);
-    public static Fraction Zero => new(0);
-
-
     public static List<BigInteger> ContinuedFraction(Fraction frac)
     {
-        if (frac.IsZero) return new List<BigInteger>() { BigInteger.Zero }; // Trivial case
-
         if (frac.IsInt) return new() { frac.Whole };    // Also trivial
-
-        List<BigInteger> coeffiecients = new();
 
         //Ensure positive denom:
 
@@ -114,7 +99,7 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
             first = frac.Whole;
         }
 
-        coeffiecients.Add(first);
+        List<BigInteger> coeffiecients = new() { first };
 
         frac = (frac - first).Invert();
 
@@ -133,5 +118,16 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
 
         return coeffiecients;
     }
-    
+
+    // Always puts on a positive denominator
+    public static (Fraction, Fraction) PutOnCommonDenominator(Fraction frac1, Fraction frac2)
+    {
+        if (frac1.Denominator == frac2.Denominator) return (frac1, frac2);
+
+        BigInteger newDenom = BigIntExtra.LeastCommonMultiple(frac1.Denominator, frac2.Denominator);
+        BigInteger toExpandFrac1By = newDenom / frac1.Denominator;
+        BigInteger toExpandFrac2By = newDenom / frac2.Denominator;
+
+        return (frac1.ExpandBy(toExpandFrac1By), frac2.ExpandBy(toExpandFrac2By));
+    }
 }
