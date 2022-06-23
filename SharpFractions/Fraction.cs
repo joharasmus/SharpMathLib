@@ -110,6 +110,11 @@ public readonly struct Fraction : IComparable<Fraction>, IEquatable<Fraction>
     public static Fraction One => new(1);
     public static Fraction Zero => new(0);
 
+    public BigInteger Whole => Numerator / Denominator;
+    public BigInteger Part => Numerator % Denominator;
+
+    public (BigInteger, Fraction) Mixed => (Whole, new(Part, Denominator)); 
+
 
     public static Fraction operator +(Fraction frac)
     {
