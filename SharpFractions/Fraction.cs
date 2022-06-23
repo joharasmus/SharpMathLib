@@ -225,9 +225,11 @@ public readonly struct Fraction : IComparable<Fraction>, IEquatable<Fraction>
         return $"{Numerator}/{Denominator}";
     }
 
-    // For interaction with other number types:
+    // For interaction with integer types:
 
     public static implicit operator Fraction(BigInteger bigInteger) => new(bigInteger);
+    public static implicit operator Fraction(long longInteger) => new(longInteger);
     public static implicit operator Fraction(int integer) => new(new(integer));
+    public static implicit operator Fraction(short shortInteger) => new(new(shortInteger));
     
 }
