@@ -1,3 +1,3 @@
 global using Microsoft.VisualStudio.TestTools.UnitTesting;
-global using SharpMathLib;
+global using SharpFractions;
 global using System.Numerics;

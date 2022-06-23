@@ -1,4 +1,4 @@
-using static SharpMathLib.BigIntExtra;
+using static SharpFractions.BigIntExtra;
 
 namespace SharpFractionsTest;
 

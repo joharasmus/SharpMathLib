@@ -1,4 +1,4 @@
-﻿namespace SharpMathLib;
+﻿namespace SharpFractions;
 
 public static class BigIntExtra
 {
