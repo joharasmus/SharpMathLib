@@ -20,7 +20,11 @@ public readonly struct Fraction : IComparable<Fraction>, IEquatable<Fraction>
         return new(Numerator * integer, Denominator);
     }
 
-    public Fraction Invert() => new(Denominator, Numerator);
+    public Fraction Invert()
+    {
+        if (Numerator.IsZero) throw new DivideByZeroException();
+        return new(Denominator, Numerator);
+    }
 
     public Fraction Pow(int power)
     {
@@ -115,6 +119,51 @@ public readonly struct Fraction : IComparable<Fraction>, IEquatable<Fraction>
 
     public (BigInteger, Fraction) Mixed => (Whole, new(Part, Denominator)); 
 
+    public static List<BigInteger> ContinuedFraction(Fraction frac)
+    {
+        if (frac.IsZero) return new List<BigInteger>() { BigInteger.Zero }; // Trivial case
+
+        if (frac.IsInt) return new() { frac.Whole };    // Also trivial
+
+        List<BigInteger> coeffiecients = new();
+
+        //Ensure positive denom:
+
+        if (frac.Denominator < 0) frac = new(-frac.Numerator, -frac.Denominator);
+
+        //For the first term we'll have to deal with the possibility of frac being negative:
+
+        BigInteger first;
+
+        if (frac.Numerator < 0)
+        {
+            first = frac.Whole - 1;
+        }
+        else
+        {
+            first = frac.Whole;
+        }
+
+        coeffiecients.Add(first);
+
+        frac = (frac - first).Invert();
+
+        // Now, redo until completion:
+
+        while (true)
+        {
+            coeffiecients.Add(frac.Whole);
+
+            frac = new(frac.Part, frac.Denominator);
+
+            if (frac.IsZero) break;
+
+            frac = frac.Invert();
+        }
+
+        return coeffiecients;
+    }
+
 
     public static Fraction operator +(Fraction frac)
     {
@@ -178,6 +227,7 @@ public readonly struct Fraction : IComparable<Fraction>, IEquatable<Fraction>
 
     // For interaction with other number types:
 
-    public static implicit operator Fraction(BigInteger bigInteger) => new(bigInteger);    
+    public static implicit operator Fraction(BigInteger bigInteger) => new(bigInteger);
+    public static implicit operator Fraction(int integer) => new(new(integer));
     
 }
