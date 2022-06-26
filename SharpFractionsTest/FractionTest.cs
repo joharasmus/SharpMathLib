@@ -1,5 +1,6 @@
 ﻿
 
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace SharpFractionsTest;
 
 [TestClass]
@@ -207,6 +208,28 @@ public class FractionTest
     }
 
     [TestMethod]
+    public void Pow_2Over3To0_Expect1Over1()
+    {
+        Fraction real = new(2, 3);
+        real = real.Pow(0);
+
+        Fraction expected = new(1, 1);
+
+        Assert.AreEqual(expected, real);
+    }
+
+    [TestMethod]
+    public void Pow_2Over3To1_Expect2Over3()
+    {
+        Fraction real = new(2, 3);
+        real = real.Pow(1);
+
+        Fraction expected = new(2, 3);
+
+        Assert.AreEqual(expected, real);
+    }
+
+    [TestMethod]
     public void Pow_3Over4ToNeg2_Expect16Over9()
     {
         Fraction fraction = new(3, 4);
@@ -269,6 +292,19 @@ public class FractionTest
     }
 
     [TestMethod]
+    public void Abs_3OverNeg5_ExpectPos3Over5()
+    {
+        Fraction fraction = new(3, -5);
+
+        fraction = Fraction.Abs(fraction);
+
+        Fraction real = new(3, 5);
+
+        Assert.AreEqual(real.Numerator, fraction.Numerator);
+        Assert.AreEqual(real.Denominator, fraction.Denominator);
+    }
+
+    [TestMethod]
     public void Abs_Neg3Over5_ExpectPos3Over5()
     {
         Fraction fraction = new(-3, 5);
@@ -279,6 +315,18 @@ public class FractionTest
 
         Assert.AreEqual(real.Numerator, fraction.Numerator);
         Assert.AreEqual(real.Denominator, fraction.Denominator);
+    }
+
+    [TestMethod]
+    public void ContinuedFraction_4_Returns4()
+    {
+        Fraction frac = new(4);
+
+        List<BigInteger> realContFrac = new() { 4 };
+
+        List<BigInteger> contFrac = Fraction.ContinuedFraction(frac);
+
+        CollectionAssert.AreEqual(contFrac, realContFrac);
     }
 
     [TestMethod]

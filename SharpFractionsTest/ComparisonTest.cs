@@ -70,6 +70,18 @@ public class ComparisonTest
     }
 
     [TestMethod]
+    public void Equals_PassNull_ReturnFalse()
+    {
+        Fraction frac = new(1, 2);
+
+        string? str = null;
+
+        bool equals = frac.Equals(str);
+
+        Assert.IsFalse(equals);
+    }
+
+    [TestMethod]
     public void Equals_String_ReturnFalse()
     {
         Fraction frac = new(1, 2);
@@ -125,5 +137,15 @@ public class ComparisonTest
         Assert.IsFalse(areEqual);
     }
 
+    [TestMethod]
+    public void GetHashCode_EqualFractions_EqualHashCodes()
+    {
+        Fraction frac1 = new(7, 9);
+        Fraction frac2 = new(7, 9);
 
+        int frac1Hash = frac1.GetHashCode();
+        int frac2Hash = frac2.GetHashCode();
+
+        Assert.AreEqual(frac1Hash, frac2Hash);
+    }
 }
