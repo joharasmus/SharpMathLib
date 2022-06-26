@@ -182,6 +182,17 @@ public class FractionTest
     }
 
     [TestMethod]
+    public void ToSimplest_15Over20_Return3Over4()
+    {
+        Fraction fraction = new(15, 20);
+        Fraction simplest = fraction.ToSimplest();
+
+        Fraction expected = new(3, 4);
+
+        Assert.AreEqual(expected, simplest);
+    }
+
+    [TestMethod]
     public void Abs_Neg3Over5_ExpectPos3Over5()
     {
         Fraction fraction = new(-3, 5);

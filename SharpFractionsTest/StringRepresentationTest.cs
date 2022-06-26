@@ -4,6 +4,18 @@
 public class StringRepresentationTest
 {
     [TestMethod]
+    public void ToString_715Over25_ReturnRight()
+    {
+        Fraction toParse = new(715, 25);
+
+        string real = toParse.ToString();
+
+        string exprected = "715/25";
+
+        Assert.AreEqual(exprected, real);
+    }
+
+    [TestMethod]
     public void TryParse_ValidString_CorrectFraction()
     {
         string toParse = "55/731";
