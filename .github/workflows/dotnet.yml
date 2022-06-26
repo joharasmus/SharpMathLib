@@ -31,7 +31,7 @@ jobs:
       with:
         name: coverage.info
         path: ./SharpFractionsTest/coverage.info
-    - uses: codecov/codecov-action@v2
+    - uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: ./SharpFractionsTest/coverage.info
