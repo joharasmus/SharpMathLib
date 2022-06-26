@@ -207,6 +207,19 @@ public class FractionTest
     }
 
     [TestMethod]
+    public void Pow_3Over4ToNeg2_Expect16Over9()
+    {
+        Fraction fraction = new(3, 4);
+
+        fraction = fraction.Pow(-2);
+
+        Fraction real = new(16, 9);
+
+        Assert.AreEqual(real.Numerator, fraction.Numerator);
+        Assert.AreEqual(real.Denominator, fraction.Denominator);
+    }
+
+    [TestMethod]
     public void Pow_3Over4To3_Expect27Over64()
     {
         Fraction fraction = new(3, 4);
@@ -243,6 +256,19 @@ public class FractionTest
     }
 
     [TestMethod]
+    public void Abs_3Over5_Expect3Over5()
+    {
+        Fraction fraction = new(3, 5);
+
+        fraction = Fraction.Abs(fraction);
+
+        Fraction real = new(3, 5);
+
+        Assert.AreEqual(real.Numerator, fraction.Numerator);
+        Assert.AreEqual(real.Denominator, fraction.Denominator);
+    }
+
+    [TestMethod]
     public void Abs_Neg3Over5_ExpectPos3Over5()
     {
         Fraction fraction = new(-3, 5);
@@ -253,6 +279,18 @@ public class FractionTest
 
         Assert.AreEqual(real.Numerator, fraction.Numerator);
         Assert.AreEqual(real.Denominator, fraction.Denominator);
+    }
+
+    [TestMethod]
+    public void ContinuedFraction_61overNeg27_ReturnsCorrect()
+    {
+        Fraction frac = new(61, -27);
+
+        List<BigInteger> realContFrac = new() { -3, 1, 2, 1, 6 };
+
+        List<BigInteger> contFrac = Fraction.ContinuedFraction(frac);
+
+        CollectionAssert.AreEqual(contFrac, realContFrac);
     }
 
     [TestMethod]
