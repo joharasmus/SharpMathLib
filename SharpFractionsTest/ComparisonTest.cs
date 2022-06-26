@@ -70,14 +70,15 @@ public class ComparisonTest
     }
 
     [TestMethod]
-    public void Equals_5Over2And2Over5_ReturnFalse()
+    public void Equals_String_ReturnFalse()
     {
-        Fraction frac1 = new(5, 2);
-        Fraction frac2 = new(2, 5);
+        Fraction frac = new(1, 2);
 
-        bool areEqual = frac1.Equals(frac2);
+        string str = "bobo";
 
-        Assert.IsFalse(areEqual);
+        bool equals = frac.Equals(str);
+
+        Assert.IsFalse(equals);
     }
 
     [TestMethod]
@@ -90,4 +91,39 @@ public class ComparisonTest
 
         Assert.AreEqual(BigInteger.Zero, compared);
     }
+
+    [TestMethod]
+    public void Compare_7Over11And11Over11_ReturnNeg1()
+    {
+        Fraction frac1 = new(7, 11);
+        Fraction frac2 = new(11, 11);
+
+        int compared = Fraction.Compare(frac1, frac2);
+
+        Assert.AreEqual(BigInteger.MinusOne, compared);
+    }
+
+    [TestMethod]
+    public void CompareTo_5Over2And2Over5_Return1()
+    {
+        Fraction frac1 = new(5, 2);
+        Fraction frac2 = new(2, 5);
+
+        int compared = frac1.CompareTo(frac2);
+
+        Assert.AreEqual(compared, 1);
+    }
+
+    [TestMethod]
+    public void Equals_5Over2And2Over5_ReturnFalse()
+    {
+        Fraction frac1 = new(5, 2);
+        Fraction frac2 = new(2, 5);
+
+        bool areEqual = frac1.Equals(frac2);
+
+        Assert.IsFalse(areEqual);
+    }
+
+
 }
