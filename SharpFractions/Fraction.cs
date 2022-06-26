@@ -40,7 +40,7 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
 
     public Fraction ExpandBy(BigInteger integer)
     {
-        return new(Numerator * integer, Denominator);
+        return new(Numerator * integer, Denominator * integer);
     }
 
     public Fraction Invert()
@@ -68,7 +68,6 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
         BigInteger gcdOfNumDen = BigInteger.GreatestCommonDivisor(Numerator, Denominator);
         return new(Numerator / gcdOfNumDen, Denominator / gcdOfNumDen);
     }
-
 
 
     public static Fraction Abs(Fraction fraction)

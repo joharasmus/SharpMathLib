@@ -141,4 +141,86 @@ public class FractionTest
         Assert.AreEqual(partNum, part.Numerator);
         Assert.AreEqual(partDenom, part.Denominator);
     }
+
+    [TestMethod]
+    public void ExpandBy_Expand3over4By5_Expect15over20()
+    {
+        Fraction frac = new(3, 4);
+
+        frac = frac.ExpandBy(5);
+
+        Fraction real = new(15, 20);
+
+        Assert.AreEqual(frac.Numerator, real.Numerator);
+        Assert.AreEqual(frac.Denominator, real.Denominator);
+    }
+
+    [TestMethod]
+    public void Invert_3Over2_2Over3()
+    {
+        Fraction fraction = new(3, 2);
+
+        fraction = fraction.Invert();
+
+        Fraction real = new(2, 3);
+
+        Assert.AreEqual(real.Numerator, fraction.Numerator);
+        Assert.AreEqual(real.Denominator, fraction.Denominator);
+    }
+
+    [TestMethod]
+    public void Pow_3Over4To3_Expect27Over64()
+    {
+        Fraction fraction = new(3, 4);
+
+        fraction = fraction.Pow(3);
+
+        Fraction real = new(27, 64);
+
+        Assert.AreEqual(real.Numerator, fraction.Numerator);
+        Assert.AreEqual(real.Denominator, fraction.Denominator);
+    }
+
+    [TestMethod]
+    public void Abs_Neg3Over5_ExpectPos3Over5()
+    {
+        Fraction fraction = new(-3, 5);
+
+        fraction = Fraction.Abs(fraction);
+
+        Fraction real = new(3, 5);
+
+        Assert.AreEqual(real.Numerator, fraction.Numerator);
+        Assert.AreEqual(real.Denominator, fraction.Denominator);
+    }
+
+    [TestMethod]
+    public void ContinuedFraction_415over93_ReturnsCorrect()
+    {
+        Fraction frac = new(415, 93);
+
+        List<BigInteger> realContFrac = new() { 4, 2, 6, 7 };
+
+        List<BigInteger> contFrac = Fraction.ContinuedFraction(frac);
+
+        CollectionAssert.AreEqual(contFrac, realContFrac);
+    }
+
+    [TestMethod]
+    public void PutOnCommonDenominator_2over3And3Over2_Return4over6And9Over6()
+    {
+        Fraction frac1 = new(2, 3);
+        Fraction frac2 = new(3, 2);
+
+        (frac1, frac2) = Fraction.PutOnCommonDenominator(frac1, frac2);
+
+        Fraction realFrac1 = new(4, 6);
+        Fraction realFrac2 = new(9, 6);
+
+        Assert.AreEqual(realFrac1.Numerator, frac1.Numerator);
+        Assert.AreEqual(realFrac1.Denominator, frac1.Denominator);
+
+        Assert.AreEqual(realFrac2.Numerator, frac2.Numerator);
+        Assert.AreEqual(realFrac2.Denominator, frac2.Denominator);
+    }
 }
