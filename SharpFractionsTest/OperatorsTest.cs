@@ -52,6 +52,15 @@ public class OperatorsTest
     }
 
     [TestMethod]
+    public void BinaryDivision_3Over4DividedBy0Over3_ThrowsException()
+    {
+        Fraction frac1 = new(3, 4);
+        Fraction frac2 = new(0, 3);
+
+        Assert.ThrowsException<DivideByZeroException>(() => frac1 / frac2 );
+    }
+
+    [TestMethod]
     public void BinaryDivision_3Over4DividedBy4Over3_Equals9Over16()
     {
         Fraction frac1 = new(3, 4);
@@ -62,5 +71,41 @@ public class OperatorsTest
         Fraction expected = new(9, 16);
 
         Assert.AreEqual(expected, quot);
+    }
+
+    [TestMethod]
+    public void ImplicitCast_CastLong_GetSameNumber()
+    {
+        long longNum = 5555555555555555555;
+
+        Fraction real = longNum;
+
+        Fraction expcted = new(longNum);
+
+        Assert.AreEqual(expcted, real);
+    }
+
+    [TestMethod]
+    public void ImplicitCast_CastInt_GetSameNumber()
+    {
+        int intNum = 555555555;
+
+        Fraction real = intNum;
+
+        Fraction expcted = new(intNum);
+
+        Assert.AreEqual(expcted, real);
+    }
+
+    [TestMethod]
+    public void ImplicitCast_CastShort_GetSameNumber()
+    {
+        short shortNum = 5555;
+
+        Fraction real = shortNum;
+
+        Fraction expcted = new(shortNum);
+
+        Assert.AreEqual(expcted, real);
     }
 }
