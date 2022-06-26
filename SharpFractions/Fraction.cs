@@ -5,6 +5,12 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
     public readonly BigInteger Numerator;
     public readonly BigInteger Denominator;
 
+    /// <summary>
+    /// Creates a fraction with numerator=<c>num</c> and denominator=<c>den</c>
+    /// </summary>
+    /// <param name="num"></param>
+    /// <param name="den"></param>
+    /// <exception cref="DivideByZeroException"></exception>
     public Fraction(BigInteger num, BigInteger den)
     {
         if (den == 0) throw new DivideByZeroException();
@@ -13,6 +19,10 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
         Denominator = den;
     }
 
+    /// <summary>
+    /// Creates a fraction with numerator=<c>integer</c> and denominator=1
+    /// </summary>
+    /// <param name="integer"></param>
     public Fraction(BigInteger integer) : this(integer, 1) { }
 
 
@@ -121,7 +131,12 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
         return coeffiecients;
     }
 
-    // Always puts on a positive denominator
+    /// <summary>
+    /// Puts frac1 and frac2 on their lowest common denominator
+    /// </summary>
+    /// <param name="frac1"></param>
+    /// <param name="frac2"></param>
+    /// <returns>Two new fractions</returns>
     public static (Fraction, Fraction) PutOnCommonDenominator(Fraction frac1, Fraction frac2)
     {
         if (frac1.Denominator == frac2.Denominator) return (frac1, frac2);

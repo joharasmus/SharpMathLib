@@ -2,7 +2,6 @@
 
 public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Fraction>
 {
-    // Comparisons:
     public static bool operator ==  (Fraction frac1, Fraction frac2) => Compare(frac1, frac2) == 0;
     public static bool operator !=  (Fraction frac1, Fraction frac2) => Compare(frac1, frac2) != 0;
     public static bool operator <   (Fraction frac1, Fraction frac2) => Compare(frac1, frac2) == -1;
@@ -17,6 +16,12 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
         return Compare(this, frac) == 0;
     }
 
+    /// <summary>
+    /// All value comparisons call this method.
+    /// </summary>
+    /// <returns>
+    /// 1 if frac1 > frac2, -1 if frac2 > frac1, 0 if equal
+    /// </returns>
     public static int Compare(Fraction frac1, Fraction frac2)
     {
         (frac1, frac2) = PutOnCommonDenominator(frac1, frac2);
