@@ -143,6 +143,36 @@ public class FractionTest
     }
 
     [TestMethod]
+    public void MinusOne_GetMinusOne_ReturnsCorrect()
+    {
+        Fraction fraction = Fraction.MinusOne;
+
+        Fraction expected = new(-1);
+
+        Assert.AreEqual(expected, fraction);
+    }
+
+    [TestMethod]
+    public void One_GetOne_ReturnsCorrect()
+    {
+        Fraction fraction = Fraction.One;
+
+        Fraction expected = new(1);
+
+        Assert.AreEqual(expected, fraction);
+    }
+
+    [TestMethod]
+    public void Zero_GetZero_ReturnsCorrect()
+    {
+        Fraction fraction = Fraction.Zero;
+
+        Fraction expected = new(0);
+
+        Assert.AreEqual(expected, fraction);
+    }
+
+    [TestMethod]
     public void ExpandBy_Expand3over4By5_Expect15over20()
     {
         Fraction frac = new(3, 4);
@@ -169,6 +199,14 @@ public class FractionTest
     }
 
     [TestMethod]
+    public void Invert_0Over2_ThrowsException()
+    {
+        Fraction fraction = new(0, 2);
+
+        Assert.ThrowsException<DivideByZeroException>(() => fraction.Invert());
+    }
+
+    [TestMethod]
     public void Pow_3Over4To3_Expect27Over64()
     {
         Fraction fraction = new(3, 4);
@@ -179,6 +217,18 @@ public class FractionTest
 
         Assert.AreEqual(real.Numerator, fraction.Numerator);
         Assert.AreEqual(real.Denominator, fraction.Denominator);
+    }
+
+    [TestMethod]
+    public void SwapSign_2Over7_ExpectNeg2OverNeg7()
+    {
+        Fraction fraction = new(2, 7);
+
+        fraction = fraction.SwapSign();
+
+        Fraction expected = new(-2, -7);
+
+        Assert.AreEqual(expected, fraction);
     }
 
     [TestMethod]
@@ -211,6 +261,18 @@ public class FractionTest
         Fraction frac = new(415, 93);
 
         List<BigInteger> realContFrac = new() { 4, 2, 6, 7 };
+
+        List<BigInteger> contFrac = Fraction.ContinuedFraction(frac);
+
+        CollectionAssert.AreEqual(contFrac, realContFrac);
+    }
+
+    [TestMethod]
+    public void ContinuedFraction_Neg61over27_ReturnsCorrect()
+    {
+        Fraction frac = new(-61, 27);
+
+        List<BigInteger> realContFrac = new() { -3, 1, 2, 1, 6 };
 
         List<BigInteger> contFrac = Fraction.ContinuedFraction(frac);
 
