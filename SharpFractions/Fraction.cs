@@ -41,6 +41,10 @@ public readonly partial struct Fraction : IComparable<Fraction>, IEquatable<Frac
 
     public BigInteger Whole => Numerator / Denominator;
     public BigInteger Part  => Numerator % Denominator;
+
+    /// <summary>
+    /// Returns the fraction in mixed form: 8/3 = 2 and 2/3
+    /// </summary>
     public (BigInteger, Fraction) Mixed => (Whole, new(Part, Denominator)); 
 
     public static Fraction MinusOne => new(-1);
