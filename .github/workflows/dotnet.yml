@@ -48,5 +48,5 @@ jobs:
     - name: ReportGenerator
       uses: danielpalme/ReportGenerator-GitHub-Action@5.4.1
       with:
-        reports: coverage.info
+        reports: SharpFractionsTest/coverage.info
             
