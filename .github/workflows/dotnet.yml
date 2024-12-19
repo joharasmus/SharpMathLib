@@ -54,7 +54,7 @@ jobs:
       with:
         reports: SharpFractionsTest/coverage.info
         targetdir: coveragereport
-        reporttypes: HTMLInline
+        reporttypes: HTML
 
     - name: Upload ReportGen artifact
       uses: actions/upload-pages-artifact@v3
