@@ -3,7 +3,7 @@
 
 |||
 |:---|:---|
-| Generated on: | 12/19/2024 - 22:23:35 |
+| Generated on: | 12/19/2024 - 22:24:31 |
 | Parser: | LCov |
 | Assemblies: | 1 |
 | Classes: | 5 |
@@ -17,7 +17,7 @@
 | Covered branches: | 56 |
 | Total branches: | 58 |
 | **Method coverage:** | [Feature is only available for sponsors](https://reportgenerator.io/pro) |
-| Tag: | 232_12421751899 |
+| Tag: | 233_12421765521 |
 
 </details>
 
