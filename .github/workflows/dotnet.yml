@@ -13,6 +13,9 @@ on:
 
 jobs:
   build-test-and-coverage:
+    permissions:
+      pages: write
+  
     runs-on: ubuntu-24.04
 
     steps:
