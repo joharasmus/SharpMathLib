@@ -50,4 +50,10 @@ jobs:
       with:
         reports: SharpFractionsTest/coverage.info
         targetdir: coveragereport
+
+    - name: Upload ReportGen artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ReportGenerator
+        path: coveragereport
             
