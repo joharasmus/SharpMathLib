@@ -43,12 +43,6 @@ jobs:
         name: coverage.info
         path: ./SharpFractionsTest/coverage.info
 
-    - name: Update codecov stats
-      uses: codecov/codecov-action@v5
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./SharpFractionsTest/coverage.info
-
     - name: ReportGenerator
       uses: danielpalme/ReportGenerator-GitHub-Action@5.4.1
       with:
