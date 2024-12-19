@@ -50,13 +50,13 @@ jobs:
       with:
         reports: SharpFractionsTest/coverage.info
         targetdir: coveragereport
+        reporttypes: MarkdownSummaryGithub
 
     - name: Upload ReportGen artifact
       uses: actions/upload-artifact@v4
       with:
         name: ReportGenerator
         path: coveragereport
-        reporttypes: MarkdownSummaryGithub
 
     - name: Publish coverage
       run: cat coveragereport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
