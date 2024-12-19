@@ -56,4 +56,7 @@ jobs:
       with:
         name: ReportGenerator
         path: coveragereport
-            
+        reporttypes: MarkdownSummaryGithub
+
+    - name: Publish coverage
+      run: cat coveragereport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
