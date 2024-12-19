@@ -37,12 +37,6 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
 
-    - name: Upload coverage.info
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage.info
-        path: ./SharpFractionsTest/coverage.info
-
     - name: ReportGenerator
       uses: danielpalme/ReportGenerator-GitHub-Action@5.4.1
       with:
