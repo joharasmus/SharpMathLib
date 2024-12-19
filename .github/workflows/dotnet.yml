@@ -49,4 +49,5 @@ jobs:
       uses: danielpalme/ReportGenerator-GitHub-Action@5.4.1
       with:
         reports: SharpFractionsTest/coverage.info
+        targetdir: coveragereport
             
