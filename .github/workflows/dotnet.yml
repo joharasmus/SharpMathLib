@@ -66,8 +66,3 @@ jobs:
       uses: actions/deploy-pages@v4
       with:
         artifact_name: ReportGenerator
-
-    - name: Auto commit any changes
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        file_pattern: coveragereport/*
