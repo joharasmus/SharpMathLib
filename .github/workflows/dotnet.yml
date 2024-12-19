@@ -64,4 +64,4 @@ jobs:
     - name: Auto commit any changes
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        file-pattern: coveragereport/*
+        file_pattern: coveragereport/*
