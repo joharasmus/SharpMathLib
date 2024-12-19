@@ -44,3 +44,7 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: ./SharpFractionsTest/coverage.info
+
+    - name: ReportGenerator
+      uses: danielpalme/ReportGenerator-GitHub-Action@5.4.1
+            
