@@ -60,3 +60,6 @@ jobs:
 
     - name: Publish coverage
       run: cat coveragereport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+
+    - name: Auto commit any changes
+      uses: stefanzweifel/git-auto-commit-action@v5
