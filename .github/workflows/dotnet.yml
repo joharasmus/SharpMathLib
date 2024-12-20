@@ -30,18 +30,15 @@ jobs:
     
     - name: Restore dependencies
       run: dotnet restore
-
-    - name: Add the new project to the solution
-      run: dotnet sln add SharpFractionsTest/SharpFractionsTestCoverage.csproj
-
-    - name: List all projects
-      run: dotnet sln list
     
     - name: Build
       run: dotnet build --no-restore
     
     - name: Test
       run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+
+    - name: Run reportgeneration
+      run: dotnet run --project SharpFractionsTest/SharpFractionsTestCoverage.csproj
 
     - name: Upload ReportGen artifact
       uses: actions/upload-pages-artifact@v3
