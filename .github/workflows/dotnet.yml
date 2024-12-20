@@ -30,6 +30,12 @@ jobs:
     
     - name: Restore dependencies
       run: dotnet restore
+
+    - name: Add the new project to the solution
+      run: dotnet sln add SharpFractionsTest/SharpFractionsTestCoverage.csproj
+
+    - name: List all projects
+      run: dotnet sln list
     
     - name: Build
       run: dotnet build --no-restore
