@@ -11,7 +11,7 @@
   <Target Name="ZCoverage">
     <ItemGroup>
       <PackageReference Include="ReportGenerator" Version="5.4.1" />
-      <ReportGenerator ReportFiles="coverage.info" TargetDirectory="..\coveragereport" ReportTypes="HTML;JsonSummary"/>
+      <ReportGenerator ReportFiles="coverage.info" TargetDirectory="coveragereport" ReportTypes="HTML;JsonSummary"/>
     </ItemGroup>
   </Target>
 </Project>
