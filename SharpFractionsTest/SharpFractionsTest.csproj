@@ -25,11 +25,3 @@
     </ItemGroup>
   </Target>
 </Project>
-
-<Project>
-  <Target Name="ZCoverage" AfterTargets="ZBuild">
-    <ItemGroup>
-      <ReportGenerator ReportFiles="coverage.info" TargetDirectory="..\coveragereport" ReportTypes="HTML;JsonSummary"/>
-    </ItemGroup>
-  </Target>
-</Project>
