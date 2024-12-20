@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="BuildAndTest">
+<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="ZBuild">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,7 +8,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
-  <Target Name="BuildAndTest">
+  <Target Name="BuildAndTest" AfterTargets="ZBuild">
     <ItemGroup>
       <PackageReference Include="coverlet.msbuild" Version="6.0.2">
         <PrivateAssets>all</PrivateAssets>
@@ -29,8 +29,10 @@
     </ItemGroup>
   </Target>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SharpFractions\SharpFractions.csproj" />
-  </ItemGroup>
+  <Target Name="ZBuild">
+    <ItemGroup>
+      <ProjectReference Include="..\SharpFractions\SharpFractions.csproj" />
+    </ItemGroup>
+  </Target>
 
 </Project>
