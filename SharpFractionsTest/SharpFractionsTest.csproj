@@ -19,9 +19,7 @@
       <PackageReference Include="MSTest.TestFramework" Version="3.6.4" />
       <PackageReference Include="coverlet.collector" Version="6.0.2" />
       <PackageReference Include="ReportGenerator" Version="5.4.1" />
-      <ItemGroup>
-        <CoverageFiles Include="coverage.info" />
-      </ItemGroup>
+      <CoverageFiles Include="coverage.info" />
       <ReportGenerator ReportFiles="coverage.info" TargetDirectory="..\coveragereport" ReportTypes="HTML;JsonSummary"/>
     </ItemGroup>
   </Target>
