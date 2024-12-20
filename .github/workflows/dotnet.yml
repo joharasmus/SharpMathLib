@@ -38,7 +38,9 @@ jobs:
       run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
 
     - name: Run ReportGenerator
-      run: dotnet $HOME/.nuget/packages/reportgenerator/5.4.1/tools/net8.0/ReportGenerator.dll -reports:SharpFractionsTest/coverage.info -targetdir:covreport -reporttypes:"Html;JsonSummary"
+      env:
+        ReportGenVersion: 5.4.1
+      run: dotnet $HOME/.nuget/packages/reportgenerator/$ReportGenVersion/tools/net8.0/ReportGenerator.dll -reports:SharpFractionsTest/coverage.info -targetdir:covreport -reporttypes:"Html;JsonSummary"
 
     - name: Upload ReportGen artifact
       uses: actions/upload-pages-artifact@v3
