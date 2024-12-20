@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="ZBuild">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <Target Name="ZCoverage">
+    <ItemGroup>
+      <ReportGenerator ReportFiles="coverage.info" TargetDirectory="..\coveragereport" ReportTypes="HTML;JsonSummary"/>
+    </ItemGroup>
+  </Target>
+</Project>
