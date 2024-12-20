@@ -1,8 +1,7 @@
 # SharpMathLib
 
 [![Build status](https://img.shields.io/github/actions/workflow/status/joharasmus/SharpMathLib/dotnet.yml?style=for-the-badge)](https://github.com/joharasmus/SharpMathLib/actions)
-[![Latest test results](https://img.shields.io/badge/Test_coverage-report-green?style=for-the-badge)](https://joharasmus.github.io/SharpMathLib)
-
+[![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fjoharasmus.github.io%2FSharpMathLib%2FSummary.json&query=%24.summary.linecoverage&suffix=%25&style=for-the-badge&label=Code%20Coverage)](https://joharasmus.github.io/SharpMathLib)
 
 [![License](https://img.shields.io/github/license/joharasmus/SharpMathLib?style=for-the-badge)](https://github.com/joharasmus/SharpMathLib?tab=MIT-1-ov-file)
 
