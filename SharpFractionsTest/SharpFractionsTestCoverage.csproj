@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="ZCoverage">
+<Project DefaultTargets="ZCoverage">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
