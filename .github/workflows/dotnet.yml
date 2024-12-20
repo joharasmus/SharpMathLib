@@ -40,7 +40,7 @@ jobs:
     - name: ReportGenerator
       uses: danielpalme/ReportGenerator-GitHub-Action@5.4.1
       with:
-        reports: SharpFractionsTest/coverage.info
+        reports: SharpFractionsTest/coverage.json
         targetdir: coveragereport
         reporttypes: 'HTML;JsonSummary'
 
