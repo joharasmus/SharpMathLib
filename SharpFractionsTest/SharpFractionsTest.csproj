@@ -8,7 +8,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
-  <Target Name="BuildAndTest" AfterTargets="ZBuild">
+  <Target Name="ZTest" AfterTargets="ZBuild">
     <ItemGroup>
       <PackageReference Include="coverlet.msbuild" Version="6.0.2">
         <PrivateAssets>all</PrivateAssets>
@@ -21,7 +21,7 @@
     </ItemGroup>
   </Target>
 
-  <Target Name="Coverage" AfterTargets="BuildAndTest">
+  <Target Name="ZCoverage" AfterTargets="ZTest">
     <ItemGroup>
       <PackageReference Include="ReportGenerator" Version="5.4.1" />
       <CoverageFiles Include="coverage.info" />
