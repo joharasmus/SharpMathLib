@@ -41,7 +41,7 @@ jobs:
       run: dotnet dotnet tool install dotnet-reportgenerator-globaltool --tool-path reportgeneratortool --version 5.4.1 --ignore-failed-sources
 
     - name: Run the ReportGenerator tool
-      run: reportgeneratortool/reportgenerator -reports:SharpFractionsTest/coverage.info -targetdir:coveragereport -reporttypes:"HTML;JsonSummary" -assemblyfilters:+* -classfilters:+* -filefilters:+* -riskhotspotassemblyfilters:+* -riskhotspotclassfilters:+* -verbosity:Info -tag:252_12423219783
+      run: reportgeneratortool/reportgenerator -reports:SharpFractionsTest/coverage.info -targetdir:coveragereport -reporttypes:"HTML;JsonSummary"
 
     - name: Upload ReportGen artifact
       uses: actions/upload-pages-artifact@v3
