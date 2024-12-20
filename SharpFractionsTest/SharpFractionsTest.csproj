@@ -20,6 +20,7 @@
     <PackageReference Include="ReportGenerator" Version="5.4.1" />
     <Target Name="Coverage" Include="coverage.info">
       <ItemGroup>
+        <CoverageFiles Include="coverage.info" />
       </ItemGroup>
       <ReportGenerator ReportFiles="coverage.info" TargetDirectory="..\coveragereport" ReportTypes="HTML;JsonSummary"/>
     </Target>
