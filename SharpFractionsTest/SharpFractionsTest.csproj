@@ -8,8 +8,8 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Target Name="Coverage">
+  <Target Name="Coverage">
+    <ItemGroup>
       <PackageReference Include="coverlet.msbuild" Version="6.0.2">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,8 +23,8 @@
         <CoverageFiles Include="coverage.info" />
       </ItemGroup>
       <ReportGenerator ReportFiles="coverage.info" TargetDirectory="..\coveragereport" ReportTypes="HTML;JsonSummary"/>
-    </Target>
-  </ItemGroup>
+    </ItemGroup>
+  </Target>
 
   <ItemGroup>
     <ProjectReference Include="..\SharpFractions\SharpFractions.csproj" />
