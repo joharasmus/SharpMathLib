@@ -35,12 +35,12 @@ jobs:
       run: dotnet build --no-restore
     
     - name: Test
-      run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=\"json,lcov\"
+      run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
 
     - name: ReportGenerator
       uses: danielpalme/ReportGenerator-GitHub-Action@5.4.1
       with:
-        reports: SharpFractionsTest/coverage.json
+        reports: SharpFractionsTest/coverage.info
         targetdir: coveragereport
         reporttypes: 'HTML;JsonSummary'
 
