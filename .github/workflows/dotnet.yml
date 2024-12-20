@@ -35,7 +35,7 @@ jobs:
       run: dotnet build --no-restore
     
     - name: Test
-      run: dotnet test SharpFractionsTest/SharpFractionsTest.csproj --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+      run: dotnet test SharpFractionsTest/SharpFractionsTest.csproj --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
 
     - name: Upload ReportGen artifact
       uses: actions/upload-pages-artifact@v3
