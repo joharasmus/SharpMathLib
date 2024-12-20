@@ -38,13 +38,13 @@ jobs:
       run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
 
     - name: Run ReportGenerator
-      run: dotnet $HOME/.nuget/packages/reportgenerator/5.4.1/tools/net8.0/ReportGenerator.dll -reports:SharpFractionsTest/coverage.info -targetdir:coveragreport
+      run: dotnet $HOME/.nuget/packages/reportgenerator/5.4.1/tools/net8.0/ReportGenerator.dll -reports:SharpFractionsTest/coverage.info -targetdir:covreport
 
     - name: Upload ReportGen artifact
       uses: actions/upload-pages-artifact@v3
       with:
         name: ReportGenerator
-        path: coveragereport
+        path: covreport
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
