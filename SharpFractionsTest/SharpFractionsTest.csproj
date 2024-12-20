@@ -19,6 +19,8 @@
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
     <PackageReference Include="ReportGenerator" Version="5.4.1" />
     <Target Name="Coverage" Include="coverage.info">
+      <ItemGroup>
+      </ItemGroup>
       <ReportGenerator ReportFiles="coverage.info" TargetDirectory="..\coveragereport" ReportTypes="HTML;JsonSummary"/>
     </Target>
   </ItemGroup>
