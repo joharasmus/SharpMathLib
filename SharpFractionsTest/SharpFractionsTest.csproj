@@ -8,16 +8,19 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="coverlet.msbuild" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.6.4" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.6.4" />
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+  </ItemGroup>
+
   <Target Name="Coverage">
     <ItemGroup>
-      <PackageReference Include="coverlet.msbuild" Version="6.0.2">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
-      <PackageReference Include="MSTest.TestAdapter" Version="3.6.4" />
-      <PackageReference Include="MSTest.TestFramework" Version="3.6.4" />
-      <PackageReference Include="coverlet.collector" Version="6.0.2" />
       <PackageReference Include="ReportGenerator" Version="5.4.1" />
       <CoverageFiles Include="coverage.info" />
       <ReportGenerator ReportFiles="coverage.info" TargetDirectory="..\coveragereport" ReportTypes="HTML;JsonSummary"/>
