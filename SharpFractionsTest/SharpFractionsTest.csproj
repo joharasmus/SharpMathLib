@@ -8,7 +8,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
-  <Target Name="ZTest" AfterTargets="ZBuild">
+  <Target Name="ZBuild">
     <ItemGroup>
       <PackageReference Include="coverlet.msbuild" Version="6.0.2">
         <PrivateAssets>all</PrivateAssets>
@@ -18,20 +18,16 @@
       <PackageReference Include="MSTest.TestAdapter" Version="3.6.4" />
       <PackageReference Include="MSTest.TestFramework" Version="3.6.4" />
       <PackageReference Include="coverlet.collector" Version="6.0.2" />
-    </ItemGroup>
-  </Target>
-
-  <Target Name="ZCoverage" AfterTargets="ZTest">
-    <ItemGroup>
       <PackageReference Include="ReportGenerator" Version="5.4.1" />
-      <CoverageFiles Include="coverage.info" />
-      <ReportGenerator ReportFiles="coverage.info" TargetDirectory="..\coveragereport" ReportTypes="HTML;JsonSummary"/>
     </ItemGroup>
-  </Target>
-
-  <Target Name="ZBuild">
     <ItemGroup>
       <ProjectReference Include="..\SharpFractions\SharpFractions.csproj" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="ZCoverage" AfterTargets="ZBuild">
+    <ItemGroup>
+      <ReportGenerator ReportFiles="coverage.info" TargetDirectory="..\coveragereport" ReportTypes="HTML;JsonSummary"/>
     </ItemGroup>
   </Target>
 
