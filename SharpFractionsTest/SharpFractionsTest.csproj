@@ -17,7 +17,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="3.7.0" />
     <PackageReference Include="MSTest.TestFramework" Version="3.7.0" />
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
-    <PackageReference Include="ReportGenerator" Version="5.4.2" />
+    <PackageReference Include="ReportGenerator" Version="5.4.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpFractions\SharpFractions.csproj" />
