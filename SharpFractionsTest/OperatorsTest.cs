@@ -57,7 +57,7 @@ public class OperatorsTest
         Fraction frac1 = new(3, 4);
         Fraction frac2 = new(0, 3);
 
-        Assert.ThrowsException<DivideByZeroException>(() => frac1 / frac2 );
+        Assert.ThrowsExactly<DivideByZeroException>(() => frac1 / frac2 );
     }
 
     [TestMethod]

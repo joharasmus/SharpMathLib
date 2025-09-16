@@ -12,7 +12,7 @@ public class BigIntExtraTest
         BigInteger first = 0;
         BigInteger second = 0;
 
-        Assert.ThrowsException<ArgumentException>(() => LeastCommonMultiple(first, second));
+        Assert.ThrowsExactly<ArgumentException>(() => LeastCommonMultiple(first, second));
     }
 
     [TestMethod]

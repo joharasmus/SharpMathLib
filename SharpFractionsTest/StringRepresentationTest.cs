@@ -20,7 +20,7 @@ public class StringRepresentationTest
     {
         string? toParse = null;
 
-        Assert.ThrowsException<ArgumentNullException>(() => Fraction.TryParse(toParse!, out Fraction frac));
+        Assert.ThrowsExactly<ArgumentNullException>(() => Fraction.TryParse(toParse!, out Fraction frac));
     }
 
     [TestMethod]

@@ -12,7 +12,7 @@ public class FractionTest
         BigInteger num = 5;
         BigInteger den = 0;
 
-        Assert.ThrowsException<DivideByZeroException>(() => new Fraction(num, den));
+        Assert.ThrowsExactly<DivideByZeroException>(() => new Fraction(num, den));
     }
 
     [TestMethod]
@@ -204,7 +204,7 @@ public class FractionTest
     {
         Fraction fraction = new(0, 2);
 
-        Assert.ThrowsException<DivideByZeroException>(() => fraction.Invert());
+        Assert.ThrowsExactly<DivideByZeroException>(() => fraction.Invert());
     }
 
     [TestMethod]
