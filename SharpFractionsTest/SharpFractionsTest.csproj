@@ -22,4 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SharpFractions\SharpFractions.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="Microsoft.VisualStudio.TestTools.UnitTesting.ParallelizeAttribute">
+  </ItemGroup>
 </Project>
