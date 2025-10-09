@@ -122,8 +122,9 @@ public class ComparisonTest
         Fraction frac2 = new(2, 5);
 
         int compared = frac1.CompareTo(frac2);
+        int one = 1;
 
-        Assert.AreEqual(compared, 1);
+        Assert.AreEqual(compared, one);
     }
 
     [TestMethod]
