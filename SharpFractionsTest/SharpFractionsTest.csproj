@@ -14,8 +14,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="4.0.0" />
-    <PackageReference Include="MSTest.TestFramework" Version="4.0.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="4.0.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.0.1" />
     <PackageReference Include="coverlet.collector" Version="6.0.4" />
     <PackageReference Include="ReportGenerator" Version="5.4.17" />
   </ItemGroup>
