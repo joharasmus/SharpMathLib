@@ -40,7 +40,7 @@ jobs:
     - name: Run ReportGenerator
       env:
         ReportGenVersion: 5.5.4
-        NetVersion: net8.0
+        NetVersion: net10.0
       run: dotnet $HOME/.nuget/packages/reportgenerator/$ReportGenVersion/tools/$NetVersion/ReportGenerator.dll -reports:SharpFractionsTest/coverage.info -targetdir:covreport -reporttypes:"Html;JsonSummary"
 
     - name: Upload ReportGen artifact
